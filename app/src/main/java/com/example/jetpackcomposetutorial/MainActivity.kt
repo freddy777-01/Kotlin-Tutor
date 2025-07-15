@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Body(modifier: Modifier){
-    Column (modifier = Modifier){
+    Column (modifier = Modifier.padding(top = 50.dp)){
         TitleImage(modifier = modifier)
         BodyContent(modifier = Modifier,
             title = stringResource(R.string.tutorial_title),

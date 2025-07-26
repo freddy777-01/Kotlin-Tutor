@@ -16,6 +16,7 @@
 
 package com.example.reply.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -47,10 +48,10 @@ fun ReplyEmailThreadItem(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(16.dp)
-            .padding(20.dp)
+            .padding(8.dp)
+            .padding(16.dp).background(MaterialTheme.colorScheme.background,MaterialTheme.shapes.medium)
     ) {
-        Row(modifier = Modifier.fillMaxWidth()) {
+        Row(modifier = Modifier.fillMaxWidth().padding(10.dp)) {
             ReplyProfileImage(
                 drawableResource = email.sender.avatar,
                 description = email.sender.fullName,
@@ -63,6 +64,7 @@ fun ReplyEmailThreadItem(
             ) {
                 Text(
                     text = email.sender.firstName,
+                    style = MaterialTheme.typography.labelMedium
                 )
                 Text(
                     text = stringResource(id = R.string.twenty_mins_ago),
@@ -83,16 +85,20 @@ fun ReplyEmailThreadItem(
 
         Text(
             text = email.subject,
-            modifier = Modifier.padding(top = 12.dp, bottom = 8.dp),
+            modifier = Modifier.padding(top = 12.dp, bottom = 8.dp, start = 10.dp, end = 10.dp),
+            style = MaterialTheme.typography.bodyMedium
         )
 
         Text(
             text = email.body,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(horizontal = 10.dp)
         )
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 20.dp),
+                .padding(vertical = 20.dp, horizontal = 10.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             Button(
